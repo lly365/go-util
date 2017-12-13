@@ -8,7 +8,7 @@ import (
 func TestSignature(t *testing.T) {
 	serverSig := new(Signature)
 	serverSig.Token = "abc123"
-	serverSig.Timestamp =1513150241
+	serverSig.Timestamp = 1513150241
 	serverSig.Nonce = "ivix"
 	serverSig.Echostr = "ivix.me"
 

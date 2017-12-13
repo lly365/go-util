@@ -1,30 +1,33 @@
 package util
 
 import (
-	"time"
 	"strings"
+	"time"
 )
 
 const (
 	TimeDefaultFormat = "2006-01-02 15:04:05"
-	TimeOnlyFormat = "15:04:05"
-	DateOnlyFormat = "2006-01-02"
+	TimeOnlyFormat    = "15:04:05"
+	DateOnlyFormat    = "2006-01-02"
 )
+
+// Default timezone
+var DefaultTimeZone   = "CST"
 
 // Get current unix timestamp
 func Time() int64 {
 	return time.Now().Unix()
 }
 
-// Convert a string to unix timestamp (CST, 中国标准时间)
+// Convert a string to unix timestamp
 // string "2017-12-13 15:30:41" to timestamp 1513150241
-func Str2Time(s string) int64{
-	return Str2TimeWithFormat(s, TimeDefaultFormat,"CST")
+func Str2Time(s string) int64 {
+	return Str2TimeWithFormat(s, TimeDefaultFormat, DefaultTimeZone)
 }
 
 // Convert a string to unix timestamp , for use define format and timezone
-func Str2TimeWithFormat(s string, format string,  tz string) int64 {
-	if !strings.HasSuffix(s, " " + tz) {
+func Str2TimeWithFormat(s string, format string, tz string) int64 {
+	if !strings.HasSuffix(s, " "+tz) {
 		s += " " + tz
 	}
 	if !strings.HasSuffix(format, " MST") {

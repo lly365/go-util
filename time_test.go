@@ -26,7 +26,7 @@ func TestTime2Str(t *testing.T) {
 	}
 
 	s = Time2StrWithFormat(1513150241, TimeOnlyFormat)
-	if s!= "15:30:41" {
+	if s != "15:30:41" {
 		t.Fatal("invalid time string")
 	}
 }
