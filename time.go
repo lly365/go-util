@@ -22,6 +22,7 @@ func Str2Time(s string) int64{
 	return Str2TimeWithFormat(s, TimeDefaultFormat,"CST")
 }
 
+// Convert a string to unix timestamp , for use define format and timezone
 func Str2TimeWithFormat(s string, format string,  tz string) int64 {
 	if !strings.HasSuffix(s, " " + tz) {
 		s += " " + tz
